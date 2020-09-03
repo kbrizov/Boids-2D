@@ -7,7 +7,7 @@ public class PerceptionCollider2D : MonoBehaviour
 {
     private Collider2D m_collider = null;
 
-    private readonly ISet<Transform> m_perceivedObjects = new HashSet<Transform>();
+    private readonly ISet<GameObject> m_perceivedObjects = new HashSet<GameObject>();
 
     public void Start()
     {
@@ -17,15 +17,15 @@ public class PerceptionCollider2D : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        m_perceivedObjects.Add(collider.transform);
+        m_perceivedObjects.Add(collider.gameObject);
     }
 
     public void OnTriggerExit2D(Collider2D collider)
     {
-        m_perceivedObjects.Remove(collider.transform);
+        m_perceivedObjects.Remove(collider.gameObject);
     }
 
-    public IEnumerable<Transform> GetPerceivedObjects()
+    public ICollection<GameObject> GetPerceivedObjects()
     {
         return m_perceivedObjects;
     }

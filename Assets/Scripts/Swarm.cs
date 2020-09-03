@@ -6,25 +6,17 @@ public class Swarm : MonoBehaviour
     private readonly IList<Boid> m_boids = new List<Boid>();
 
     [SerializeField]
-    [Range(0.0f, 256)]
+    [Range(0.0f, 256.0f)]
     private uint numberOfBoids = 64;
 
     [SerializeField]
-    [Range(0.0f, 512)]
+    [Range(0.0f, 512.0f)]
     private uint spawnAreaRadius = 8;
 
     [SerializeField]
     private Boid m_boidPrefab = null;
 
-    [SerializeField]
-    private BoidBehaviour m_boidBehaviour = null;
-
     public void Start()
-    {
-        this.Initialize();
-    }
-
-    private void Initialize()
     {
         for (int i = 0; i < numberOfBoids; i++)
         {
