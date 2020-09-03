@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faebc183368404f41beab590a47cf24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_movementSpeed: 10
-  m_rotationSpeed: 10
+  m_movementSpeed: 1
+  m_rotationSpeed: 4
 --- !u!114 &844632533346334860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2e71f7f8fce994db58e0ba427ef722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_behaviour: {fileID: 11400000, guid: f10799446f891a54398e6243dcfdfc28, type: 2}
 --- !u!1 &8228502791205188654
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815330095968152121, guid: c5c5ba5880de44443b29d92ade2d4ca4, type: 3}
       propertyPath: m_Radius
-      value: 0.35
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8828609836799033288, guid: c5c5ba5880de44443b29d92ade2d4ca4, type: 3}
       propertyPath: m_Name
@@ -325,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 3982491729280078650, guid: c5c5ba5880de44443b29d92ade2d4ca4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815330095968152121, guid: c5c5ba5880de44443b29d92ade2d4ca4, type: 3}
+      propertyPath: m_Radius
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8828609836799033288, guid: c5c5ba5880de44443b29d92ade2d4ca4, type: 3}
       propertyPath: m_Name

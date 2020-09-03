@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Scripts.BoidBehaviours;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Swarm : MonoBehaviour
@@ -16,7 +17,10 @@ public class Swarm : MonoBehaviour
     [SerializeField]
     private Boid m_boidPrefab = null;
 
-    public void Start()
+    [SerializeField]
+    private BoidBehaviour m_boidBehaviour = null;
+
+    public void Awake()
     {
         for (int i = 0; i < numberOfBoids; i++)
         {
@@ -25,6 +29,15 @@ public class Swarm : MonoBehaviour
             Boid boid = Instantiate(m_boidPrefab, position, rotation, parent: this.transform);
 
             m_boids.Add(boid);
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        foreach (var boid in m_boids)
+        {
+            Vector2 move = m_boidBehaviour.CalculateMove(boid);
+            boid.Move(move);
         }
     }
 }

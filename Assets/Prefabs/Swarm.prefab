@@ -46,4 +46,4 @@ MonoBehaviour:
   numberOfBoids: 32
   spawnAreaRadius: 8
   m_boidPrefab: {fileID: 844632533346334860, guid: 9a62e01c834578645aa8e888f666161e, type: 3}
-  m_boidBehaviour: {fileID: 0}
+  m_boidBehaviour: {fileID: 11400000, guid: f10799446f891a54398e6243dcfdfc28, type: 2}
