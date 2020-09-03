@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Swarm
       objectReference: {fileID: 0}
+    - target: {fileID: 8296412456974557033, guid: b9897a010d43ca44ebeaa17eb9c000a8, type: 3}
+      propertyPath: numberOfBoids
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 8296412456974557034, guid: b9897a010d43ca44ebeaa17eb9c000a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

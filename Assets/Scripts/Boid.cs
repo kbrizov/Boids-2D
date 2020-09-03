@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.BoidBehaviours;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Collider2D))]
@@ -9,6 +10,9 @@ public class Boid : MonoBehaviour
     private Collider2D m_collider = null;
     private BoidPerceptionComponent m_perceptionComponent = null;
     private BoidMovementComponent m_movementComponent = null;
+
+    [SerializeField]
+    private BoidBehaviour m_boidBehaviour = null;
 
     public Collider2D Collider
     {
@@ -54,6 +58,14 @@ public class Boid : MonoBehaviour
         this.Collider = this.GetComponent<Collider2D>();
         this.PerceptionComponent = this.GetComponent<BoidPerceptionComponent>();
         this.MovementComponent = this.GetComponent<BoidMovementComponent>();
+
+        Assert.IsTrue(m_boidBehaviour != null);
+    }
+
+    public void FixedUpdate()
+    {
+        Vector2 move = m_boidBehaviour.CalculateMove(this);
+        this.Move(move);
     }
 
     public void Move(Vector2 direction)

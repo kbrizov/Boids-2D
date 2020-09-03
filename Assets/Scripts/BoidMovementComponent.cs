@@ -26,7 +26,7 @@ public class BoidMovementComponent : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        if (direction.sqrMagnitude > 0.0f)
+        if (0.0f < direction.sqrMagnitude)
         {
             Vector2 velocity = direction.normalized * MovementSpeed;
             Vector2 currentPosition = this.transform.position;
@@ -41,7 +41,7 @@ public class BoidMovementComponent : MonoBehaviour
 
     public void RotateToDirection(Vector2 direction)
     {
-        if (direction.sqrMagnitude > 0.0f)
+        if (0.0f < direction.sqrMagnitude)
         {
             Vector3 forward = direction.normalized;
             Vector3 up = -this.transform.forward;
