@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Scripts.BoidBehaviours
 {
@@ -7,7 +9,24 @@ namespace Scripts.BoidBehaviours
     {
         public override Vector2 CalculateMove(Boid boid)
         {
-            throw new System.NotImplementedException();
+            Assert.IsTrue(boid != null);
+            ICollection<GameObject> perceivedObjects = boid.PerceptionComponent.GetOuterPerceivedObjects();
+
+            if (perceivedObjects.Count == 0)
+            {
+                return boid.transform.up;
+            }
+
+            Vector2 alignmentMove = Vector2.zero;
+
+            foreach (var gameObject in perceivedObjects)
+            {
+                alignmentMove += (Vector2)gameObject.transform.up;
+            }
+
+            alignmentMove /= perceivedObjects.Count;
+
+            return alignmentMove;
         }
     }
 }

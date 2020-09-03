@@ -1,5 +1,4 @@
-﻿using Scripts.BoidBehaviours;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Swarm : MonoBehaviour
 {
@@ -13,9 +12,6 @@ public class Swarm : MonoBehaviour
 
     [SerializeField]
     private Boid m_boidPrefab = null;
-
-    [SerializeField]
-    private BoidBehaviour m_boidBehaviour = null;
 
     public void Awake()
     {

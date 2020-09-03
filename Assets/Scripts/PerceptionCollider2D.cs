@@ -25,7 +25,7 @@ public class PerceptionCollider2D : MonoBehaviour
         m_perceivedObjects.Remove(collider.gameObject);
     }
 
-    public ICollection<GameObject> GetPerceivedObjects()
+    public ISet<GameObject> GetPerceivedObjects()
     {
         return m_perceivedObjects;
     }

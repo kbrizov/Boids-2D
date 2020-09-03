@@ -10,7 +10,6 @@ namespace Scripts.BoidBehaviours
         public override Vector2 CalculateMove(Boid boid)
         {
             Assert.IsTrue(boid != null);
-
             ICollection<GameObject> perceivedObjects = boid.PerceptionComponent.GetOuterPerceivedObjects();
 
             if (perceivedObjects.Count == 0)
@@ -18,17 +17,17 @@ namespace Scripts.BoidBehaviours
                 return Vector2.zero;
             }
 
-            Vector2 move = Vector2.zero;
+            Vector2 cohesionMove = Vector2.zero;
 
             foreach (var gameObject in perceivedObjects)
             {
-                move += (Vector2)gameObject.transform.position;
+                cohesionMove += (Vector2)gameObject.transform.position;
             }
 
-            move /= perceivedObjects.Count;
-            move -= (Vector2)boid.transform.position;
+            cohesionMove /= perceivedObjects.Count;
+            cohesionMove -= (Vector2)boid.transform.position;
 
-            return move;
+            return cohesionMove;
         }
     }
 }

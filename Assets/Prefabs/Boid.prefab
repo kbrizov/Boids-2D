@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_movementSpeed: 2
-  m_rotationSpeed: 4
+  m_rotationSpeed: 16
 --- !u!114 &844632533346334860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2e71f7f8fce994db58e0ba427ef722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_boidBehaviour: {fileID: 11400000, guid: f10799446f891a54398e6243dcfdfc28, type: 2}
+  m_compositeBoidBehaviour:
+  - {fileID: 11400000, guid: 7b1273757fcc76245a56b1cb5462bc5c, type: 2}
+  - {fileID: 11400000, guid: f10799446f891a54398e6243dcfdfc28, type: 2}
+  - {fileID: 11400000, guid: 6d10ec13d818d944cb9ab45f58530b00, type: 2}
 --- !u!1 &8228502791205188654
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815330095968152121, guid: c5c5ba5880de44443b29d92ade2d4ca4, type: 3}
       propertyPath: m_Radius
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8828609836799033288, guid: c5c5ba5880de44443b29d92ade2d4ca4, type: 3}
       propertyPath: m_Name
