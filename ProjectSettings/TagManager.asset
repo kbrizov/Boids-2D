@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Boid
+  - InnerPerception
+  - OuterPerception
   - 
   - 
   - 

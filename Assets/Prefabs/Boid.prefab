@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5208101887569130492}
   - component: {fileID: 1086971250900704792}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InnerPerception
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,11 +56,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4868389588773125318}
+  - component: {fileID: 6762045810322991401}
   - component: {fileID: 5247132103636354376}
   - component: {fileID: 1785518194075712806}
   - component: {fileID: 6835478973819312989}
   - component: {fileID: 844632533346334860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &6762045810322991401
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016914895259516476}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!70 &5247132103636354376
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7229940412004056482}
   - component: {fileID: 6070188970956175462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OuterPerception
   m_TagString: Untagged
   m_Icon: {fileID: 0}
