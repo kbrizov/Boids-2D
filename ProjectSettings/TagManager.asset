@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - Boid
-  - InnerPerception
-  - OuterPerception
+  - Perception
+  - 
   - 
   - 
   - 

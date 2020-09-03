@@ -10,7 +10,7 @@ public class Boid : MonoBehaviour
     private BoidPerceptionComponent m_perceptionComponent = null;
     private BoidMovementComponent m_movementComponent = null;
 
-    public Collider2D Collider 
+    public Collider2D Collider
     {
         get
         {
