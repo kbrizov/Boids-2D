@@ -1,44 +1,37 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class BoidPerceptionComponent : MonoBehaviour
 {
-    const int PERCEIVED_OBJECTS_INITIAL_CAPACITY = 256;
-
-    private IList<GameObject> m_innerPerceivedObjects = new List<GameObject>(PERCEIVED_OBJECTS_INITIAL_CAPACITY);
-    private IList<GameObject> m_outerPerceivedObjects = new List<GameObject>(PERCEIVED_OBJECTS_INITIAL_CAPACITY);
+    [SerializeField]
+    private float m_innerPerceptionRadius = 1.0f;
 
     [SerializeField]
-    float m_innerPerceptionRadius = 1.0f;
+    private float m_outerPerceptionRadius = 4.0f;
 
     [SerializeField]
-    float m_outerPerceptionRadius = 4.0f;
+    private LayerMask m_perceptionLayer = new LayerMask();
 
     public ICollection<GameObject> GetInnerPerceivedObjects()
     {
-        GetPerceivedObjectsInRadius(m_innerPerceptionRadius, ref m_innerPerceivedObjects);
-
-        return m_innerPerceivedObjects;
+        return this.GetPerceivedObjectsInRadius(m_innerPerceptionRadius);
     }
 
     public ICollection<GameObject> GetOuterPerceivedObjects()
     {
-        GetPerceivedObjectsInRadius(m_outerPerceptionRadius, ref m_outerPerceivedObjects);
-
-        return m_outerPerceivedObjects;
+        return this.GetPerceivedObjectsInRadius(m_outerPerceptionRadius);
     }
 
-    private void GetPerceivedObjectsInRadius(float radius, ref IList<GameObject> perceivedObjects)
+    private ICollection<GameObject> GetPerceivedObjectsInRadius(float radius)
     {
-        Assert.IsTrue(perceivedObjects != null);
-
-        perceivedObjects.Clear();
-        Collider2D[] perceivedColliders = Physics2D.OverlapCircleAll(this.transform.position, radius);
+        Collider2D[] perceivedColliders = Physics2D.OverlapCircleAll(this.transform.position, radius, m_perceptionLayer);
+        ICollection<GameObject> perceivedObjects = new List<GameObject>(perceivedColliders.Length);
 
         foreach (var collider in perceivedColliders)
         {
             perceivedObjects.Add(collider.gameObject);
         }
+
+        return perceivedObjects;
     }
 }

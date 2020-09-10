@@ -223,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296412456974557033, guid: b9897a010d43ca44ebeaa17eb9c000a8, type: 3}
       propertyPath: spawnAreaRadius
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8296412456974557033, guid: b9897a010d43ca44ebeaa17eb9c000a8, type: 3}
       propertyPath: m_boidPrefab
