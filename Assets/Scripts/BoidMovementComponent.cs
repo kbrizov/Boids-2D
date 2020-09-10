@@ -10,21 +10,17 @@ public class BoidMovementComponent : MonoBehaviour
     [Range(0.0f, 100.0f)]
     private float m_rotationSpeed = 1.0f;
 
-    public float MovementSpeed => m_movementSpeed;
-
-    public float RotationSpeed => m_rotationSpeed;
-
     public void Move(Vector2 direction, float deltaTime)
     {
         if (0.0f < direction.sqrMagnitude)
         {
-            Vector2 velocity = direction.normalized * this.MovementSpeed;
+            Vector2 velocity = direction.normalized * m_movementSpeed;
             Vector2 currentPosition = this.transform.position;
             Vector2 newPosition = currentPosition + velocity;
 
             if (currentPosition != newPosition)
             {
-                float step = this.MovementSpeed * deltaTime;
+                float step = m_movementSpeed * deltaTime;
                 this.transform.position = Vector2.MoveTowards(currentPosition, newPosition, step);
             }
         }
@@ -39,7 +35,7 @@ public class BoidMovementComponent : MonoBehaviour
 
             if (currentRotation != newRotation)
             {
-                float rotationStep = this.RotationSpeed * deltaTime;
+                float rotationStep = m_rotationSpeed * deltaTime;
                 this.transform.rotation = Quaternion.Slerp(currentRotation, newRotation, rotationStep);
             }
         }

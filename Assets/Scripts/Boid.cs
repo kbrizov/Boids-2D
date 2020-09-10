@@ -75,7 +75,7 @@ public class Boid : MonoBehaviour
         this.Move(compositeMove, Time.deltaTime);
     }
 
-    public void Move(Vector2 direction, float deltaTime)
+    private void Move(Vector2 direction, float deltaTime)
     {
         this.MovementComponent.RotateToDirection(direction, deltaTime);
         this.MovementComponent.Move(direction, deltaTime);
