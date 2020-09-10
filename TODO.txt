@@ -5,3 +5,10 @@
 - Perhaps the approach with colliders for perception does not scale well at all?
 - Think about moving the composite move calculation out of the Boid class and to the Swarm? Perhaps it will be more optimized? Can't tell right now, my brain is melted.
 - Consider how this can be rewritten with the Unity DOTS.
+
+NOTES: It appears the physics approach is the issue. Collision detection seems to be heavy in scale.
+EDIT: Yes, the physics were causing the performance issues.
+
+3. Maybe use Cinemachine for the camera?
+
+4. Draw debug display in the PerceptionComponent.

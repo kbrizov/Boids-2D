@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class BoidMovementComponent : MonoBehaviour
 {
-    private Rigidbody2D m_rigidBody = null;
-
     [SerializeField]
     [Range(0.0f, 100.0f)]
     private float m_movementSpeed = 1.0f;
@@ -18,41 +14,33 @@ public class BoidMovementComponent : MonoBehaviour
 
     public float RotationSpeed => m_rotationSpeed;
 
-    public void Start()
-    {
-        m_rigidBody = this.GetComponent<Rigidbody2D>();
-        Assert.IsTrue(m_rigidBody != null);
-    }
-
-    public void Move(Vector2 direction)
+    public void Move(Vector2 direction, float deltaTime)
     {
         if (0.0f < direction.sqrMagnitude)
         {
-            Vector2 velocity = direction.normalized * MovementSpeed;
+            Vector2 velocity = direction.normalized * this.MovementSpeed;
             Vector2 currentPosition = this.transform.position;
-            Vector2 newPosition = currentPosition + (velocity * Time.fixedDeltaTime);
+            Vector2 newPosition = currentPosition + velocity;
 
             if (currentPosition != newPosition)
             {
-                m_rigidBody.MovePosition(newPosition);
+                float step = this.MovementSpeed * deltaTime;
+                this.transform.position = Vector2.MoveTowards(currentPosition, newPosition, step);
             }
         }
     }
 
-    public void RotateToDirection(Vector2 direction)
+    public void RotateToDirection(Vector2 direction, float deltaTime)
     {
         if (0.0f < direction.sqrMagnitude)
         {
-            Vector3 forward = direction.normalized;
-            Vector3 up = -this.transform.forward;
-
             Quaternion currentRotation = this.transform.rotation;
-            Quaternion newRotation = Quaternion.LookRotation(forward, up);
+            Quaternion newRotation = Quaternion.LookRotation(Vector3.forward, direction.normalized);
 
             if (currentRotation != newRotation)
             {
-                float rotationStep = this.RotationSpeed * Time.fixedDeltaTime;
-                m_rigidBody.MoveRotation(Quaternion.Slerp(currentRotation, newRotation, rotationStep));
+                float rotationStep = this.RotationSpeed * deltaTime;
+                this.transform.rotation = Quaternion.Slerp(currentRotation, newRotation, rotationStep);
             }
         }
     }

@@ -61,7 +61,7 @@ public class Boid : MonoBehaviour
         this.MovementComponent = this.GetComponent<BoidMovementComponent>();
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         Vector2 compositeMove = Vector2.zero;
 
@@ -72,12 +72,12 @@ public class Boid : MonoBehaviour
 
         compositeMove /= m_compositeBoidBehaviour.Count;
 
-        this.Move(compositeMove);
+        this.Move(compositeMove, Time.deltaTime);
     }
 
-    public void Move(Vector2 direction)
+    public void Move(Vector2 direction, float deltaTime)
     {
-        this.MovementComponent.RotateToDirection(direction);
-        this.MovementComponent.Move(direction);
+        this.MovementComponent.RotateToDirection(direction, deltaTime);
+        this.MovementComponent.Move(direction, deltaTime);
     }
 }
