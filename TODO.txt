@@ -12,3 +12,5 @@ EDIT: Yes, the physics were causing the performance issues.
 3. Maybe use Cinemachine for the camera?
 
 4. Draw debug display in the PerceptionComponent.
+
+5. Create another perception component for benchmarking. One that uses vector math and one that uses the physics system.
