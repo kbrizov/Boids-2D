@@ -8,7 +8,7 @@ namespace Scripts.BoidBehaviours
     public class Composite : BoidBehaviour
     {
         [SerializeField]
-        private List<BoidBehaviour> m_boidBehaviours = new List<BoidBehaviour>();
+        private List<BoidBehaviourWeightPair> m_pairs = new List<BoidBehaviourWeightPair>();
 
         public override Vector2 CalculateMove(Boid boid)
         {
@@ -16,15 +16,26 @@ namespace Scripts.BoidBehaviours
 
             Vector2 compositeMove = Vector2.zero;
 
-            foreach (var behaviour in m_boidBehaviours)
+            foreach (var pair in m_pairs)
             {
-                compositeMove += behaviour.CalculateMove(boid); // TODO: Add weight/force to each behaviour.
+                BoidBehaviour behaviour = pair.BoidBehaviour;
+                float weight = pair.Weight;
+                compositeMove += (behaviour.CalculateMove(boid) * weight);
             }
 
-            compositeMove /= m_boidBehaviours.Count;
+            compositeMove /= m_pairs.Count;
             compositeMove.Normalize();
 
             return compositeMove;
+        }
+
+        [System.Serializable]
+        private class BoidBehaviourWeightPair
+        {
+            public BoidBehaviour BoidBehaviour = null;
+
+            [Range(0.0f, 1.0f)]
+            public float Weight = 1.0f;
         }
     }
 }

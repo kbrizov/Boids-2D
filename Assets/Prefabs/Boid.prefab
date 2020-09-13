@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eecd13d79f3dce4783fbae85fc98294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_innerPerceptionRadius: 2
+  m_innerPerceptionRadius: 1
   m_outerPerceptionRadius: 4
   m_perceptionLayer:
     serializedVersion: 2
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_movementSpeed: 4
-  m_rotationSpeed: 8
+  m_rotationSpeed: 4
 --- !u!114 &844632533346334860
 MonoBehaviour:
   m_ObjectHideFlags: 0

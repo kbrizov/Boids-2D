@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011a4a1e036f33f469082365d610a5e5, type: 3}
   m_Name: Composite
   m_EditorClassIdentifier: 
-  m_boidBehaviours:
-  - {fileID: 11400000, guid: 7b1273757fcc76245a56b1cb5462bc5c, type: 2}
-  - {fileID: 11400000, guid: f10799446f891a54398e6243dcfdfc28, type: 2}
-  - {fileID: 11400000, guid: 6d10ec13d818d944cb9ab45f58530b00, type: 2}
+  m_pairs:
+  - BoidBehaviour: {fileID: 11400000, guid: 7b1273757fcc76245a56b1cb5462bc5c, type: 2}
+    Weight: 1
+  - BoidBehaviour: {fileID: 11400000, guid: f10799446f891a54398e6243dcfdfc28, type: 2}
+    Weight: 0.25
+  - BoidBehaviour: {fileID: 11400000, guid: 6d10ec13d818d944cb9ab45f58530b00, type: 2}
+    Weight: 1
