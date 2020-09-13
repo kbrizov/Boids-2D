@@ -25,6 +25,7 @@ namespace Scripts.BoidBehaviours
             }
 
             alignmentMove /= perceivedObjects.Count;
+            alignmentMove.Normalize();
 
             return alignmentMove;
         }

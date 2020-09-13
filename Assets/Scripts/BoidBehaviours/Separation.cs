@@ -25,6 +25,7 @@ namespace Scripts.BoidBehaviours
             }
 
             separationMove /= perceivedObjects.Count;
+            separationMove.Normalize();
 
             return separationMove;
         }

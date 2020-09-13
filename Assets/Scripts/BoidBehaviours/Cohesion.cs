@@ -26,6 +26,7 @@ namespace Scripts.BoidBehaviours
 
             cohesionMove /= perceivedObjects.Count;
             cohesionMove -= (Vector2)boid.transform.position;
+            cohesionMove.Normalize();
 
             return cohesionMove;
         }
