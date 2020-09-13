@@ -1,5 +1,4 @@
 ﻿using Scripts.BoidBehaviours;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -13,7 +12,7 @@ public class Boid : MonoBehaviour
     private BoidMovementComponent m_movementComponent = null;
 
     [SerializeField]
-    private List<BoidBehaviour> m_compositeBoidBehaviour = new List<BoidBehaviour>();
+    private BoidBehaviour m_behaviour = null;
 
     public Collider2D Collider
     {
@@ -56,6 +55,8 @@ public class Boid : MonoBehaviour
 
     public void Start()
     {
+        Assert.IsTrue(m_behaviour != null);
+
         this.Collider = this.GetComponent<Collider2D>();
         this.PerceptionComponent = this.GetComponent<BoidPerceptionComponent>();
         this.MovementComponent = this.GetComponent<BoidMovementComponent>();
@@ -63,16 +64,8 @@ public class Boid : MonoBehaviour
 
     public void Update()
     {
-        Vector2 compositeMove = Vector2.zero;
-
-        foreach (var behaviour in m_compositeBoidBehaviour)
-        {
-            compositeMove += behaviour.CalculateMove(this);
-        }
-
-        compositeMove /= m_compositeBoidBehaviour.Count;
-
-        this.Move(compositeMove, Time.deltaTime);
+        Vector2 direction = m_behaviour.CalculateMove(this);
+        this.Move(direction, Time.deltaTime);
     }
 
     private void Move(Vector2 direction, float deltaTime)

@@ -10,6 +10,7 @@ namespace Scripts.BoidBehaviours
         public override Vector2 CalculateMove(Boid boid)
         {
             Assert.IsTrue(boid != null);
+
             ICollection<GameObject> perceivedObjects = boid.PerceptionComponent.GetInnerPerceivedObjects();
 
             if (perceivedObjects.Count == 0)

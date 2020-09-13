@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eecd13d79f3dce4783fbae85fc98294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_innerPerceptionRadius: 4
-  m_outerPerceptionRadius: 8
+  m_innerPerceptionRadius: 2
+  m_outerPerceptionRadius: 4
   m_perceptionLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -116,10 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2e71f7f8fce994db58e0ba427ef722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_compositeBoidBehaviour:
-  - {fileID: 11400000, guid: 7b1273757fcc76245a56b1cb5462bc5c, type: 2}
-  - {fileID: 11400000, guid: f10799446f891a54398e6243dcfdfc28, type: 2}
-  - {fileID: 11400000, guid: 6d10ec13d818d944cb9ab45f58530b00, type: 2}
+  m_behaviour: {fileID: 11400000, guid: 99585e6f0bdc4c54e887b558b382babb, type: 2}
 --- !u!1 &8228502791205188654
 GameObject:
   m_ObjectHideFlags: 0
