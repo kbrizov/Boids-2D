@@ -19,3 +19,5 @@ MonoBehaviour:
     Weight: 0.25
   - BoidBehaviour: {fileID: 11400000, guid: 6d10ec13d818d944cb9ab45f58530b00, type: 2}
     Weight: 1
+  - BoidBehaviour: {fileID: 11400000, guid: ebf527e2b020ffb438bfda9a5599bc26, type: 2}
+    Weight: 0.5
