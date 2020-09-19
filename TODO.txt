@@ -1,0 +1,19 @@
+1. Add weights to the different behaviours.
+- This would allow much more control.
+
+2. Investigate the performance issues. The frame drops happen when the number of boids exceeds 32.
+- Perhaps the approach with colliders for perception does not scale well at all?
+- Think about moving the composite move calculation out of the Boid class and to the Swarm? Perhaps it will be more optimized? Can't tell right now, my brain is melted.
+- Consider how this can be rewritten with the Unity DOTS
+
+NOTES: It appears the physics approach is the issue. Collision detection seems to be heavy in scale.
+EDIT: Yes, the physics were causing the performance issues.
+- Consider not using physics (rigidBodies) at all.
+
+3. Maybe use Cinemachine for the camera?
+
+4. Draw debug display in the PerceptionComponent.
+
+5. Create another perception component for benchmarking. One that uses vector math and one that uses the physics system.
+
+6. Should the boid consider its own collider when calculating perceived objects? Experiment. 
