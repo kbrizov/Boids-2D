@@ -73,3 +73,4 @@ crashlytics-build.properties
 # Custom ignores
 Assets/Marketplace/
 Assets/Marketplace.meta
+/TODO.txt
