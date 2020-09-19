@@ -16,4 +16,4 @@ EDIT: Yes, the physics were causing the performance issues.
 
 5. Create another perception component for benchmarking. One that uses vector math and one that uses the physics system.
 
-6. Should the boid consider its own collider when calculating perceived objects? Experiment.
+6. Should the boid consider its own collider when calculating perceived objects? Experiment. 
