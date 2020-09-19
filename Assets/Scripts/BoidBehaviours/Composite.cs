@@ -20,7 +20,7 @@ namespace Scripts.BoidBehaviours
             {
                 BoidBehaviour behaviour = pair.BoidBehaviour;
                 float weight = pair.Weight;
-                compositeMove += (behaviour.CalculateMove(boid) * weight);
+                compositeMove += (behaviour.CalculateMove(boid).normalized * weight);
             }
 
             compositeMove /= m_pairs.Count;
