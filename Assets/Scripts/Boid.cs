@@ -33,7 +33,7 @@ public class Boid : MonoBehaviour
         {
             return m_perceptionComponent;
         }
-        set
+        private set
         {
             Assert.IsTrue(value != null);
             m_perceptionComponent = value;
@@ -46,7 +46,7 @@ public class Boid : MonoBehaviour
         {
             return m_movementComponent;
         }
-        set
+        private set
         {
             Assert.IsTrue(value != null);
             m_movementComponent = value;
