@@ -7,25 +7,11 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(BoidMovementComponent))]
 public class Boid : MonoBehaviour
 {
-    private Collider2D m_collider = null;
     private BoidPerceptionComponent m_perceptionComponent = null;
     private BoidMovementComponent m_movementComponent = null;
 
     [SerializeField]
     private BoidBehaviour m_behaviour = null;
-
-    public Collider2D Collider
-    {
-        get
-        {
-            return m_collider;
-        }
-        private set
-        {
-            Assert.IsTrue(value != null);
-            m_collider = value;
-        }
-    }
 
     public BoidPerceptionComponent PerceptionComponent
     {
@@ -57,7 +43,6 @@ public class Boid : MonoBehaviour
     {
         Assert.IsTrue(m_behaviour != null);
 
-        this.Collider = this.GetComponent<Collider2D>();
         this.PerceptionComponent = this.GetComponent<BoidPerceptionComponent>();
         this.MovementComponent = this.GetComponent<BoidMovementComponent>();
     }
