@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(BoidPerceptionComponent))]
 [RequireComponent(typeof(BoidMovementComponent))]
 public class Boid : MonoBehaviour
